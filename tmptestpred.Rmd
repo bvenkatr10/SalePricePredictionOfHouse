@@ -1,0 +1,51 @@
+```{r}
+pred <- read.csv("mysubmission2.txt")
+test.y <- read.csv("test_y.csv")
+pred
+```
+
+```{r}
+names(test.y)[2] <- "True_Sale_Price"
+
+```
+
+```{r}
+pred
+```
+```{r}
+test.y
+```
+
+```{r}
+pred <- merge(pred, test.y, by="PID")
+
+```
+
+```{r}
+pred
+```
+
+```{r}
+salePriceLog = log(pred$Sale_Price)
+trueSalePriceLog = log(pred$True_Sale_Price)
+sqrt(mean(( salePriceLog- trueSalePriceLog)^2))
+sqrt(mean((log(pred$Sale_Price) - log(pred$True_Sale_Price))^2))
+```
+
+```{r}
+sqrt(mean((log(pred$Sale_Price) - log(pred$True_Sale_Price))^2))
+```
+
+```{r}
+pred <- read.csv("mysubmission2.txt")
+names(test.y)[2] <- "True_Sale_Price"
+pred <- merge(pred, test.y, by="PID")
+sqrt(mean((log(pred$Sale_Price) - log(pred$True_Sale_Price))^2))
+
+pred <- read.csv("mysubmission1.txt")
+names(test.y)[2] <- "True_Sale_Price"
+pred <- merge(pred, test.y, by="PID")
+sqrt(mean((log(pred$Sale_Price) - log(pred$True_Sale_Price))^2))
+```
+
+
